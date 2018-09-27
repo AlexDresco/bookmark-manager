@@ -9,11 +9,9 @@ describe 'Features' do
   feature 'Viewing bookmarks' do
     scenario 'a user can see previously added bookmarks' do
       visit('/bookmarks')
-      expect(page.status_code).to eq(200)
-      bookmarks = Bookmark.all
-      expect(bookmarks).to include 'http://www.makersacademy.com'
-      expect(bookmarks).to have_content 'http://www.destroyallsoftware.com'
-      expect(bookmarks).to have_content 'http://www.google.com'
+      expect(page).to have_content 'http://www.makersacademy.com'
+      expect(page).to have_content 'http://www.destroyallsoftware.com'
+      expect(page).to have_content 'http://www.google.com'
     end
   end
 end
